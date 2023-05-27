@@ -13,7 +13,8 @@
         .container{
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            
+            /* justify-content: center; */
         }
          .suges{
             /* height: 200px; */
@@ -29,12 +30,38 @@
         .poi{
             background-color: rgb(108, 196, 237);
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100px;
             width: 100px;
             font-size: larger;
-        } 
+        }
+ 
+        .ans{
+            height: 100px;
+            width: 300px;
+            background-color: yellow;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .doctor{
+            height: 100px;
+            width: 600px;
+            text-align: center;
+            background-color: rgb(198, 153, 153);
+            font-size: large;
+            font-weight: 900;
+       
+        }
+        .p{
+            height: 50px;
+            width: 100px;
+            font-size: 15px
+            
+        }
     </style>
 </head>
 <body>
@@ -46,6 +73,7 @@
             document.getElementById("score").innerHTML=score + " out of 17";
         </script>
         <div class="suges">Colour Blindness Percentage<div class="poi"></div>
+            <div class="ans"></div>
         <script>
             let suges=document.querySelector(".suges")
             let p = ""
@@ -58,27 +86,36 @@
             
             let poi = document.querySelector(".poi")
             poi.innerHTML=v
-            
+            let ans=document.querySelector(".ans")
+            if(v<20 && v>=0){
+                ans.innerHTML="NORMAL EYESIGHT"
+            }   
+            else if(v<40 && v>=20){
+                ans.innerHTML="MILD COLOUR BLINDNESS"
+            }
+            else if(v<60 && v>=40){
+                ans.innerHTML="MODERATE COLOUR BLINDBNESS"
+            }
+            else if(v<80 && v>=60){
+                ans.innerHTML="PARTIAL COLOUR BLINDNESS"
+            }
+            else if(v<=100 && v>=80){
+                ans.innerHTML="STRONG COLOUR BLINDNESS"
+            }
             
         </script>
 
         
     </div>
-    <!-- <div class="suges">Colour Blinness Percentage<div class="poi"></div>
-    
-        <script>
-            let suges=document.querySelector(".suges")
-            let p = ""
-            let vafr= (score/4)*100;
-            console.log(vafr)
-            let per = 100 - vafr;
-            p= per
-            let poi = document.querySelector(".poi")
-            poi.innerHTML=p
-            
-            
-        </script>
-    </div> -->
+        <div class="doctor">YOU NEED TO CONTACT DOCTOR FOR COLOUR BLINDNESS
+            <button class="p"><a style ="text-decoration: none;" href="https://www.credihealth.com/doctors/india/color-blindness">Contact Now</a></button>
+            <script>
+        let av = document.querySelector(".doctor")
+        if(v>=0 && v<40){
+            av.style.display = "none"
+        }
+    </script>
+    </div>
    
 </body>
 </html>
