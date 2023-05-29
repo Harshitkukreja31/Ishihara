@@ -128,7 +128,7 @@ let next_button = document.getElementById("next-button");
 let current_question_number=0;
 let score=0;
 let time;
-const total_time = 10;
+const total_time = 15;
 let sec = total_time;
 function timer(){
     time_element.innerHTML=sec;
